@@ -76,15 +76,36 @@
 
     <div class="right">
         <div class="box" id="gioithieu">
-            <h2>GIỚI THIỆU LỚP 12A2</h2>
-            <p>12A2 là ngôi nhà chung của 51 thành viên, nơi lưu giữ những kỷ niệm đáng nhớ của năm học cuối cấp.</p>
-        </div>
+            <p>
+                    12A2 là ngôi nhà chung của 51 thành viên, nơi lưu giữ những kỷ niệm đáng nhớ của năm học cuối cấp. 
+                    Chúng ta là tập thể đoàn kết, năng động, luôn giúp nhau vượt khó trong học tập và các hoạt động ngoại khóa.
+                </p>
+                <p>
+                    Trong năm qua, lớp đã tổ chức nhiều chuyến dã ngoại, tham gia các hoạt động thiện nguyện và thực hiện các dự án lớp đầy thú vị. 
+                    Những khoảnh khắc này sẽ mãi là ký ức khó quên của mỗi thành viên.
+                </p>
+                <p>
+                    Dù trưởng thành và mỗi người sẽ một hướng đi, hình ảnh tuổi học trò của 12A2 vẫn sẽ luôn ở trong tim mỗi chúng ta. 
+                    Hy vọng mỗi thành viên sẽ giữ mãi tình bạn, kỷ niệm đẹp của lớp và tiếp tục gặt hái những thành công trong tương lai.
+                </p>
+            </div>
 
-        <div class="box" id="hoatdong">
-            <h2>HOẠT ĐỘNG CHIA TAY</h2>
-            <p>Những khoảnh khắc đáng nhớ của tuổi học trò sẽ mãi ở lại trong tim mỗi thành viên.</p>
+            <div class="box" id="hoatdong">
+                <h2>HOẠT ĐỘNG CHIA TAY</h2>
+                <p>
+                    Dù chưa chính thức chia tay, lớp 12A2 đã cùng nhau trải qua nhiều khoảnh khắc đáng nhớ: từ những giờ học căng thẳng, các hoạt động ngoại khóa thú vị, đến những dự án lớp đầy hứng khởi.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                    <img src="https://i.ibb.co/RkTW4Mrz/IMG-6434.jpg" alt="Hoạt động lớp" class="anh" onclick="moAnh(this.src)" style="width:48%; border-radius:10px;">
+                    <img src="https://i.ibb.co/359TH6Q9/IMG-6439.jpg" alt="Hoạt động lớp" class="anh" onclick="moAnh(this.src)" style="width:48%; border-radius:10px;">
+                    <img src="https://i.ibb.co/xqdNjDvS/65ecf5b78fa79dcf2f11e3fe05a44c9d.jpg" alt="Hoạt động lớp" class="anh" onclick="moAnh(this.src)" style="width:48%; border-radius:10px;">
+                    <img src="https://i.ibb.co/wFP0H5ZB/IMG-6148.jpg" alt="Hoạt động lớp" class="anh" onclick="moAnh(this.src)" style="width:48%; border-radius:10px;">
+                </div>
+                <p style="margin-top:10px;">
+                    Mỗi nụ cười, mỗi trò đùa, từng khoảnh khắc đều in sâu trong ký ức. 
+                    Dù trưởng thành và mỗi người sẽ một hướng đi, tình bạn và những kỷ niệm của 12A2 vẫn sẽ mãi ở lại trong tim mỗi thành viên.
+           </p>
         </div>
-
         <div class="box" id="thanhvien">
             <h2>THÀNH VIÊN NHÓM 5</h2>
             <p>Nhóm trưởng: Đới Sỹ Hiếu</p>
@@ -121,8 +142,38 @@ function moAnh(src) {
 }
 function dongAnh() {
     document.getElementById("popup").style.display = "none";
-}
-</script>
+    
+     }
 
+        // Menu active khi scroll
+        const sections = document.querySelectorAll('.right .box, .left .box');
+        const menuLinks = document.querySelectorAll('.menu ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Click menu highlight
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
+
