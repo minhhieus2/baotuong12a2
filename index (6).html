@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Báo Tường Điện Tử 12A2</title>
+    <style>
+        body { margin: 0; font-family: Arial; background-color: #f4b400; }
+        .header { background-color: black; color: white; text-align: center; padding: 20px; }
+        .menu { background-color: white; }
+        .menu ul { list-style-type: none; margin: 0; padding: 0; text-align: center; }
+        .menu ul li { display: inline-block; padding: 16px 25px; }
+        .menu ul li a { text-decoration: none; color: black; font-weight: bold; transition: 0.3s; }
+        .menu ul li a:hover { color: yellow; font-size: 18px; }
+        .menu ul li a.active { color: red; font-size: 18px; }
+        .container { display: flex; padding: 20px; }
+        .left { width: 30%; }
+        .right { width: 70%; }
+        .box { background-color: white; margin-bottom: 20px; padding: 15px; border: 3px solid black; }
+        .box h2 { background-color: black; color: white; padding: 10px; }
+        .box img { width: 100%; cursor: pointer; transition: 0.3s; }
+        .box img:hover { transform: scale(1.1); }
+        .footer { background-color: black; color: white; text-align: center; padding: 15px; }
+        html { scroll-behavior: smooth; }
+        .popup { display: none; position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.8); top: 0; left: 0; text-align: center; }
+        .popup img { margin-top: 5%; max-width: 80%; }
+        #thanhvien { text-align: center; font-weight: bold; }
+        #binhluan textarea { width: 100%; padding: 8px; margin-top: 5px; resize: vertical; }
+        #binhluan button { margin-top: 5px; padding: 8px 12px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>BÁO TƯỜNG ĐIỆN TỬ</h1>
+    <p>KỈ NIỆM NĂM HỌC CUỐI CẤP</p>
+</header>
+
+<nav class="menu">
+    <ul>
+        <li><a href="#thongbao">Trang chủ</a></li>
+        <li><a href="#gioithieu">Giới thiệu</a></li>
+        <li><a href="#hoatdong">Hoạt động</a></li>
+        <li><a href="#thuvien">Thư viện</a></li>
+        <li><a href="#clip">Clip kỉ niệm</a></li>
+        <li><a href="#thanhvien">Thành viên</a></li>
+        <li><a href="#binhluan">Bình luận</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="left">
+        <div class="box" id="thongbao">
+            <h2>THÔNG BÁO</h2>
+            <p>100 ngày đếm ngược</p>
+            <p>Lễ tổng kết chia tay 26/5</p>
+            <p>Chuyến du lịch cuối năm</p>
+        </div>
+
+        <div class="box" id="thuvien">
+            <h2>THƯ VIỆN ẢNH</h2>
+            <img src="https://i.ibb.co/7tgrLF9C/IMG-6407.jpg" onclick="moAnh(this.src)">
+            <img src="https://i.ibb.co/TD58PFkN/KOI-6188.jpg" onclick="moAnh(this.src)">
+            <img src="https://i.ibb.co/6cczm0dH/KOI-6194.jpg" onclick="moAnh(this.src)">
+        </div>
+
+        <div class="box" id="clip">
+            <h2>CLIP KỈ NIỆM</h2>
+            <iframe width="140" height="300"
+                src="https://www.youtube.com/embed/l9vBiXX5ITY"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="box" id="gioithieu">
+            <h2>GIỚI THIỆU LỚP 12A2</h2>
+            <p>12A2 là ngôi nhà chung của 51 thành viên, nơi lưu giữ những kỷ niệm đáng nhớ của năm học cuối cấp.</p>
+        </div>
+
+        <div class="box" id="hoatdong">
+            <h2>HOẠT ĐỘNG CHIA TAY</h2>
+            <p>Những khoảnh khắc đáng nhớ của tuổi học trò sẽ mãi ở lại trong tim mỗi thành viên.</p>
+        </div>
+
+        <div class="box" id="thanhvien">
+            <h2>THÀNH VIÊN NHÓM 5</h2>
+            <p>Nhóm trưởng: Đới Sỹ Hiếu</p>
+            <p>Thư kí: Đặng Minh Đạo</p>
+            <p>Thành viên: Đặng Nhật Tân</p>
+            <p>Thành viên: Nguyễn Thị Hồng Thêm</p>
+            <p>Thành viên: Phạm Tiến Đạt</p>
+            <p>Thành viên: Thới Nguyễn Kim Ngân</p>
+            <p>Thành viên: Nguyễn Văn Anh Tuấn</p>
+            <p>Thành viên: Nguyễn Thị Cẩm Tú</p>
+        </div>
+
+        <div class="box" id="binhluan">
+            <h2>BÌNH LUẬN</h2>
+            <textarea rows="5" placeholder="Viết bình luận..."></textarea>
+            <button onclick="alert('Cảm ơn bạn đã gửi bình luận!')">Gửi bình luận</button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>STD: 0936478899</p>
+    <p>GMAIL: trangchulop12a2@gmail.com</p>
+</footer>
+
+<div id="popup" class="popup" onclick="dongAnh()">
+    <img id="anhLon">
+</div>
+
+<script>
+function moAnh(src) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("anhLon").src = src;
+}
+function dongAnh() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
